@@ -7,14 +7,13 @@ import java.util.Queue;
 import java.util.Random;
 
 public class C1_3thread_wait_and_notify {
-    static final Queue<Integer> Q = new LinkedList<>();
+    static final Queue<Integer> Q = new LinkedList<Integer>();
     static final int size = 10;
     static Random random = new Random();
 
 
     static class Producer implements Runnable {
 
-        @Override
         public void run() {
             while (true) {
                 synchronized (Q) {
@@ -36,7 +35,6 @@ public class C1_3thread_wait_and_notify {
 
     static class Consumer implements Runnable {
 
-        @Override
         public void run() {
             while (true) {
                 synchronized (Q) {
@@ -66,7 +64,6 @@ public class C1_3thread_wait_and_notify {
         //实现 notify() 和 notifyall()的区别
         final Object o = new Object();
         Thread t1 = new Thread(new Runnable() {
-            @Override
             public void run() {
                 synchronized (o) {
                     try {
@@ -81,7 +78,6 @@ public class C1_3thread_wait_and_notify {
         });
 
         Thread t2 = new Thread(new Runnable() {
-            @Override
             public void run() {
                 synchronized (o) {
                     try {
@@ -96,7 +92,6 @@ public class C1_3thread_wait_and_notify {
         });
 
         Thread t3 = new Thread(new Runnable() {
-            @Override
             public void run() {
                 synchronized (o) {
                     try {
